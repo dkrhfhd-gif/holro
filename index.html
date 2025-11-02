@@ -4,24 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>서울대 안양수목원 예약 주차위치 코스보기</title>
+    
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J5L62JXZJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8J5L62JXZJ');
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J5L62JXZJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8J5L62JXZJ');
+    </script>
+    <!-- 👈 이 줄만 추가! -->
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8N54C4EBY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google Ads Conversion Tracking -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-11211788695/B8JyCN_JjpUZEJejmeIp',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
 
-  gtag('config', 'G-D8N54C4EBY');
-</script>
-</script>
+    <!-- 애드센스 보호 스크립트 -->
+    <script>
+    // 종합 애드센스 보호 시스템
+    class AdSenseProtection {
+        constructor() {
+            this.dailyLimit = 3;
+            this.clickInterval = 5000;
+            this.lastClick = 0;
+            this.init();
+        }
+        
+        init() {
+            this.checkBot();
+            this.setupClickProtection();
+        }
+        
+        checkBot() {
+            const botIndicators = [
+                navigator.webdriver,
+                window.phantom,
+                /bot|crawler|spider/i.test(navigator.userAgent)
+            ];
+            
+            if (botIndicators.some(indicator => indicator)) {
+                this.hideAds();
+            }
+        }
+        
+        setupClickProtection() {
+            document.addEventListener('click', (e) => {
+                const ad = e.target.closest('.adsbygoogle');
+                if (ad && !this.validateClick()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+        }
+        
+        validateClick() {
+            const now = Date.now();
+            
+            if (now - this.lastClick < this.clickInterval) {
+                alert('너무 빠른 클릭입니다. 잠시 후 다시 시도해주세요.');
+                return false;
+            }
+            
+            if (this.getTodayClicks() >= this.dailyLimit) {
+                alert('오늘 광고 클릭 한도를 초과했습니다.');
+                return false;
+            }
+            
+            this.lastClick = now;
+            this.incrementClickCount();
+            return true;
+        }
+        
+        getTodayClicks() {
+            const today = new Date().toDateString();
+            const stored = localStorage.getItem('adClicks_' + today);
+            return parseInt(stored || '0');
+        }
+        
+        incrementClickCount() {
+            const today = new Date().toDateString();
+            const current = this.getTodayClicks();
+            localStorage.setItem('adClicks_' + today, (current + 1).toString());
+        }
+        
+        hideAds() {
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.adsbygoogle').forEach(ad => {
+                    ad.style.display = 'none';
+                });
+            });
+        }
+    }
+
+    // 보호 시스템 활성화
+    new AdSenseProtection();
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -437,7 +529,7 @@
         <!-- 바로가기 버튼 -->
         <div class="shortcut-section">
             <div id="shortcut-target" class="scroll-target"></div>
-            <a href="https://two.keypoints.kr/" class="shortcut-btn">
+            <a href="https://two.keypoints.kr/" class="shortcut-btn" onclick="return gtag_report_conversion('https://two.keypoints.kr/');">
                 👆​ 상세 정보 바로가기 👆​
             </a>
         </div>

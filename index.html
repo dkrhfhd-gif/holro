@@ -13,21 +13,17 @@
       gtag('js', new Date());
       gtag('config', 'G-8J5L62JXZJ');
     </script>
-    <!-- 👈 이 줄만 추가! -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D8N54C4EBY"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8N54C4EBY"></script>
+    
     <!-- Google Ads Conversion Tracking -->
     <script>
       function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
-          }
-        };
         gtag('event', 'conversion', {
-            'send_to': 'AW-11211788695/B8JyCN_JjpUZEJejmeIp',
-            'event_callback': callback
+            'send_to': 'AW-11211788695/B8JyCN_JjpUZEJejmeIp'
         });
+        // 페이지 이동을 하지 않음 (전면광고에서 사용자가 직접 클릭하도록)
         return false;
       }
     </script>
@@ -206,54 +202,6 @@
             transform: translateY(0);
         }
 
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .btn {
-            display: block;
-            padding: 18px 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #4a7c29 0%, #6ba83d 100%);
-            box-shadow: 0 4px 15px rgba(74, 124, 41, 0.3);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 6px 20px rgba(74, 124, 41, 0.4);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
-        }
-
-        .btn-secondary:hover {
-            box-shadow: 0 6px 20px rgba(240, 147, 251, 0.4);
-        }
-
         .description {
             background: #f8f9fa;
             padding: 25px;
@@ -267,10 +215,29 @@
             color: #2d5016;
         }
 
+        .description h4 {
+            font-size: 1.05rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #2d5016;
+            font-weight: 600;
+        }
+
         .description p {
             margin-bottom: 12px;
             color: #555;
             line-height: 1.8;
+        }
+
+        .description ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .description li {
+            margin-bottom: 6px;
+            color: #555;
+            line-height: 1.6;
         }
 
         .visit-info {
@@ -284,6 +251,7 @@
             font-size: 1.2rem;
             margin-bottom: 12px;
             color: #2d5016;
+            font-weight: 700;
         }
 
         .visit-info p {
@@ -293,6 +261,40 @@
 
         .visit-info p:last-child {
             margin-bottom: 0;
+        }
+
+        .info-highlight {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+
+        .info-highlight p {
+            margin: 3px 0;
+            color: #856404;
+            font-weight: 500;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 2px solid #4a7c29;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .summary-box h4 {
+            color: #2d5016;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .summary-box p {
+            color: #1b5e20;
+            line-height: 1.8;
+            margin: 0;
         }
 
         .shortcut-section {
@@ -328,10 +330,6 @@
             50% {
                 transform: scale(1.05);
             }
-        }
-
-        .scroll-target {
-            scroll-margin-top: 400px;
         }
 
         .features {
@@ -382,6 +380,10 @@
              display: block;
         }
 
+        #check-info {
+            scroll-margin-top: 80px;
+        }
+
         .footer {
             text-align: center;
             padding: 20px;
@@ -412,16 +414,15 @@
                 font-size: 1rem;
             }
 
-            .btn {
-                padding: 16px 25px;
-                font-size: 1rem;
-            }
-
             .description h2 {
                 font-size: 1.1rem;
             }
 
-            .description p {
+            .description h4 {
+                font-size: 1rem;
+            }
+
+            .description p, .description li {
                 font-size: 0.9rem;
             }
 
@@ -455,8 +456,8 @@
                 min-height: 200px;
             }
 
-            .scroll-target {
-                scroll-margin-top: 350px;
+            #check-info {
+                scroll-margin-top: 60px;
             }
         }
     </style>
@@ -471,9 +472,9 @@
         <div class="content">
             <!-- 상단 3개 링크 버튼 -->
             <div class="top-buttons">
-                <a href="#shortcut-target" class="link-btn">🚗 주차장 확인</a>
-                <a href="#shortcut-target" class="link-btn">📅 프로그램 예약하기</a>
-                <a href="#shortcut-target" class="link-btn">🗺️ 코스 보기</a>
+                <a href="https://two.keypoints.kr/" class="link-btn">🚗 주차장 확인</a>
+                <a href="https://two.keypoints.kr/" class="link-btn">📅 프로그램 예약하기</a>
+                <a href="https://two.keypoints.kr/" class="link-btn">🗺️ 코스 보기</a>
             </div>
 
             <!-- 간단한 설명 -->
@@ -507,6 +508,50 @@
             </div>
         </div>
 
+        <!-- 확인하기 섹션 -->
+        <div class="content">
+            <div class="description">
+                <h2 id="check-info">확인하기</h2>
+                
+                <h4>🚗 주차 안내</h4>
+                <ul>
+                    <li>수목원 내부 주차 불가</li>
+                    <li>안양예술공원 공영주차장 이용</li>
+                    <li>주말 & 성수기 혼잡 → 대중교통 추천</li>
+                </ul>
+
+                <h4>📅 프로그램 예약 방법</h4>
+                <ul>
+                    <li>개별 자유관람 불가</li>
+                    <li>사전 예약 프로그램 참여 필수</li>
+                    <li>일반적으로 매월 20일 오전 9시 오픈 → 다음 달 숲해설·치유 프로그램 신청</li>
+                </ul>
+                <div class="info-highlight">
+                    <p>예약 빨리 마감됨! 알람 필수 ✅</p>
+                </div>
+
+                <h4>🥾 추천 코스 포인트</h4>
+                <ul>
+                    <li>자생식물원 → 습지원 → 소잔디원 코스 인기</li>
+                    <li>자연 관찰/치유형 코스, 난이도 쉬움</li>
+                    <li>운동화 & 긴 바지 추천</li>
+                    <li>음식물 반입 제한(생수 OK)</li>
+                </ul>
+
+                <h4>✨ 방문 팁</h4>
+                <ul>
+                    <li>아이 있는 가족, 힐링 산책에 👍</li>
+                    <li>봄/가을 풍경 특히 아름다움</li>
+                    <li>체험형 프로그램 위주 → 천천히 즐기기 좋음</li>
+                </ul>
+
+                <div class="summary-box">
+                    <h4>📌 한줄 요약</h4>
+                    <p>서울대 안양수목원은 자유 입장이 아닌 사전 예약제 🌿 주차는 안양예술공원에 하고, 숲해설 프로그램으로 힐링 산책하기 딱 좋아요!</p>
+                </div>
+            </div>
+        </div>
+
         <!-- 광고 공간 -->
         <div class="ad-space" id="ad-section">
             <div class="ad-container">
@@ -528,8 +573,7 @@
 
         <!-- 바로가기 버튼 -->
         <div class="shortcut-section">
-            <div id="shortcut-target" class="scroll-target"></div>
-            <a href="https://two.keypoints.kr/" class="shortcut-btn" onclick="return gtag_report_conversion('https://two.keypoints.kr/');">
+            <a href="https://two.keypoints.kr/" class="shortcut-btn" onclick="gtag_report_conversion('https://two.keypoints.kr/'); return false;">
                 👆​ 상세 정보 바로가기 👆​
             </a>
         </div>
@@ -540,21 +584,7 @@
     </div>
 
     <script>
-        // 모든 앵커 링크에 부드러운 스크롤 적용
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        // 스크롤 기능 제거됨
     </script>
 </body>
 </html>

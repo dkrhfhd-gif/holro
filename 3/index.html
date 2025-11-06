@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고속버스 예매하기</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11211788695"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-11211788695');
+  </script>
+
+  <meta name="description" content="전국 고속버스 예매하기 | 실시간 시간표·요금·터미널 정보 한눈에 확인하고 바로 예매하세요. 모바일 승차권 발급까지 간편하게!">
+  <link rel="icon" href="https://info.keypoints.kr/wp-content/uploads/2024/11/bus-icon.png">
+  <style>
+    /* (아래는 기존 디자인 그대로) */
+    .coach-landing{--c-bg:#f6f9fb;--c-text:#111;--c-muted:#596169;
+      --c-blue:#1769ff;--c-green:#28a745;--c-orange:#ff9800;--c-primary:#2e7d32;
+      --c-white:#fff;--c-shadow:0 6px 18px rgba(0,0,0,.08);
+      font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      background:var(--c-bg);color:var(--c-text);border-radius:16px;padding:24px 16px;margin:0 auto;max-width:960px}
+    .coach-landing *{box-sizing:border-box}
+    .cl-hero{text-align:center;padding:6px 8px 4px}
+    .cl-badge{display:inline-block;background:#ffe8e0;color:#c43d00;font-weight:700;border-radius:999px;padding:6px 12px;margin:0 0 10px}
+    .cl-hero h1{font-size:1.7rem;line-height:1.35;margin:4px 0 8px}
+    .cl-sub{color:var(--c-muted);margin:0 auto 14px;max-width:680px}
+
+    .cl-top-cta{display:grid;grid-template-columns:1fr;gap:10px;margin:14px auto 10px;max-width:720px}
+    .cl-btn{display:inline-block;text-align:center;padding:14px 16px;border-radius:12px;font-weight:800;text-decoration:none}
+    .cl-btn-blue{background:var(--c-blue);color:var(--c-white)}
+    .cl-btn-green{background:var(--c-green);color:var(--c-white)}
+    .cl-btn-orange{background:var(--c-orange);color:var(--c-white)}
+    .cl-btn-primary{background:var(--c-primary);color:var(--c-white)}
+
+    .cl-benefits{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;color:#2f3a2f;margin:8px 0 4px;padding:0}
+    .cl-benefits li{list-style:none;background:#e9f1ff;border-radius:10px;padding:6px 10px;font-size:.93rem}
+
+    .cl-cards{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0}
+    .cl-card{background:#fff;border:1px solid #e5eaf3;border-radius:12px;padding:14px 12px;box-shadow:var(--c-shadow);display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .cl-card strong{font-size:1.05rem}
+    .cl-small{color:var(--c-muted);font-size:.92rem}
+    .cl-card-link{background:#212121;color:#fff;text-decoration:none;padding:10px 14px;border-radius:10px;font-weight:800}
+
+    .cl-faq{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0}
+    .cl-faq-item{background:#fff;border:1px solid #e9efe9;border-radius:12px;padding:14px}
+    .cl-faq-item h3{margin:0 0 6px;font-size:1.05rem}
+    .cl-link{font-weight:800;color:#1769ff;text-decoration:underline}
+
+    .cl-summary{background:#f1f8f2;border:1px solid #cfe3d0;border-radius:14px;padding:16px;margin:20px 0;text-align:center}
+    .cl-summary p{margin:0 0 10px}
+
+    .cl-sticky-cta{position:sticky;bottom:0;left:0;right:0;display:block;background:transparent;margin-top:14px}
+    .cl-sticky-btn{display:block;margin:0 auto;max-width:720px;background:#ff5c00;color:#fff;text-align:center;
+      padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 8px 18px rgba(0,0,0,.18);text-decoration:none}
+
+    @media (min-width:640px){
+      .cl-hero h1{font-size:2rem}
+      .cl-top-cta{grid-template-columns:repeat(3,1fr)}
+      .cl-cards{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (min-width:880px){
+      .cl-hero h1{font-size:2.2rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🚍 고속버스 예매하기 랜딩 -->
+  <section class="coach-landing" aria-label="고속버스 예매 안내">
+    <div class="cl-hero">
+      <p class="cl-badge">🔥 주말·명절 좌석 빠르게 마감 중</p>
+      <h1>전국 고속버스 예매하기</h1>
+      <p class="cl-sub">실시간 시간표·요금·터미널 정보 한 번에 확인하고 지금 바로 예매하세요.</p>
+
+      <!-- 상단 버튼 3개 -->
+      <div class="cl-top-cta">
+        <a href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/" class="cl-btn cl-btn-blue" target="_self">🕒 실시간 시간표 보기</a>
+        <a href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/" class="cl-btn cl-btn-green" target="_self">🎫 지금 바로 예매하기</a>
+        <a href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/" class="cl-btn cl-btn-orange" target="_self">🗺️ 터미널·요금 확인</a>
+      </div>
+
+      <ul class="cl-benefits">
+        <li>✅ 실시간 좌석 확인</li>
+        <li>✅ 우등·프리미엄 비교</li>
+        <li>✅ 모바일 승차권 발급</li>
+      </ul>
+    </div>
+<!-- 대표 노선 카드 (클릭 유도형) -->
+  <div class="cl-cards">
+    <div class="cl-card">
+      <strong>서울 ↔ 부산</strong>
+      <span class="cl-small">약 4시간 20분 · 우등/프리미엄</span>
+      <a class="cl-card-link" target="_self"
+         href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/">예매하기</a>
+    </div>
+    <div class="cl-card">
+      <strong>서울 ↔ 광주</strong>
+      <span class="cl-small">약 3시간 30분 · 직행 다수</span>
+      <a class="cl-card-link" target="_self"
+         href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/">예매하기</a>
+    </div>
+    <div class="cl-card">
+      <strong>서울 ↔ 대전</strong>
+      <span class="cl-small">약 1시간 50분 · 잦은 배차</span>
+      <a class="cl-card-link" target="_self"
+         href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/">예매하기</a>
+    </div>
+  </div>
+
+  <!-- 이용 팁/가이드 (FAQ형 CTA) -->
+  <div class="cl-faq">
+    <div class="cl-faq-item">
+      <h3>❓ 예매 취소·환불 규정</h3>
+      <p>출발 전 취소 수수료는 시간대별로 달라요. 자세히 보시려면 아래에서 확인하세요.</p>
+      <a class="cl-link" target="_self"
+         href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/">취소·환불 자세히 보기</a>
+    </div>
+    <div class="cl-faq-item">
+      <h3>🧳 수하물 규정</h3>
+      <p>크기·무게 제한을 확인하고 불편 없이 탑승하세요.</p>
+      <a class="cl-link" target="_self"
+         href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/">수하물 규정 확인</a>
+    </div>
+    <div class="cl-faq-item">
+      <h3>⭐ 좌석 등급 비교</h3>
+      <p>일반/우등/프리미엄 좌석 차이와 요금·편의성을 비교해 보세요.</p>
+      <a class="cl-link" target="_self"
+         href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/">좌석 등급 확인</a>
+    </div>
+  </div>
+
+  <!-- 하단 요약 + 메인 CTA -->
+  <div class="cl-summary">
+    <p>📌 <strong>요약:</strong> 실시간 시간표 확인 → 좌석 선택 → 모바일 승차권 발급까지 한 번에!</p>
+    <a class="cl-btn cl-btn-primary" target="_self"
+       href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/">🎫 지금 예매하기</a>
+  </div>
+
+  <!-- 모바일 하단 고정 CTA -->
+  <div class="cl-sticky-cta" role="dialog" aria-label="하단 고정 예매 버튼">
+    <a class="cl-sticky-btn" target="_self"
+       href="https://info.keypoints.kr/%ec%a0%84%ea%b5%ad-%ea%b3%a0%ec%86%8d%eb%b2%84%ec%8a%a4-%ec%98%88%eb%a7%a4%ed%95%98%ea%b8%b0-%ec%8b%9c%ec%8b%9c%ea%b0%84-%ec%8b%9c%ea%b0%84%ed%91%9c%c2%b7%ec%9a%94%ea%b8%88%c2%b7%ed%84%b0%eb%af%b8/">🎫 지금 바로 예매하기</a>
+  </div>
+</section>
+
+<style>
+  .coach-landing{--c-bg:#f6f9fb;--c-text:#111;--c-muted:#596169;
+    --c-blue:#1769ff;--c-green:#28a745;--c-orange:#ff9800;--c-primary:#2e7d32;
+    --c-white:#fff;--c-shadow:0 6px 18px rgba(0,0,0,.08);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--c-bg);color:var(--c-text);border-radius:16px;padding:24px 16px;margin:0 auto;max-width:960px}
+  .coach-landing *{box-sizing:border-box}
+  .cl-hero{text-align:center;padding:6px 8px 4px}
+  .cl-badge{display:inline-block;background:#ffe8e0;color:#c43d00;font-weight:700;border-radius:999px;padding:6px 12px;margin:0 0 10px}
+  .cl-hero h1{font-size:1.7rem;line-height:1.35;margin:4px 0 8px}
+  .cl-sub{color:var(--c-muted);margin:0 auto 14px;max-width:680px}
+
+  .cl-top-cta{display:grid;grid-template-columns:1fr;gap:10px;margin:14px auto 10px;max-width:720px}
+  .cl-btn{display:inline-block;text-align:center;padding:14px 16px;border-radius:12px;font-weight:800;text-decoration:none}
+  .cl-btn-blue{background:var(--c-blue);color:var(--c-white)}
+  .cl-btn-green{background:var(--c-green);color:var(--c-white)}
+  .cl-btn-orange{background:var(--c-orange);color:var(--c-white)}
+  .cl-btn-primary{background:var(--c-primary);color:var(--c-white)}
+
+  .cl-benefits{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;color:#2f3a2f;margin:8px 0 4px;padding:0}
+  .cl-benefits li{list-style:none;background:#e9f1ff;border-radius:10px;padding:6px 10px;font-size:.93rem}
+
+  .cl-cards{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0}
+  .cl-card{background:#fff;border:1px solid #e5eaf3;border-radius:12px;padding:14px 12px;box-shadow:var(--c-shadow);display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .cl-card strong{font-size:1.05rem}
+  .cl-small{color:var(--c-muted);font-size:.92rem}
+  .cl-card-link{background:#212121;color:#fff;text-decoration:none;padding:10px 14px;border-radius:10px;font-weight:800}
+
+  .cl-faq{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0}
+  .cl-faq-item{background:#fff;border:1px solid #e9efe9;border-radius:12px;padding:14px}
+  .cl-faq-item h3{margin:0 0 6px;font-size:1.05rem}
+  .cl-link{font-weight:800;color:#1769ff;text-decoration:underline}
+
+  .cl-summary{background:#f1f8f2;border:1px solid #cfe3d0;border-radius:14px;padding:16px;margin:20px 0;text-align:center}
+  .cl-summary p{margin:0 0 10px}
+
+  .cl-sticky-cta{position:sticky;bottom:0;left:0;right:0;display:block;background:transparent;margin-top:14px}
+  .cl-sticky-btn{display:block;margin:0 auto;max-width:720px;background:#ff5c00;color:#fff;text-align:center;
+    padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 8px 18px rgba(0,0,0,.18);text-decoration:none}
+
+  @media (min-width:640px){
+    .cl-hero h1{font-size:2rem}
+    .cl-top-cta{grid-template-columns:repeat(3,1fr)}
+    .cl-cards{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (min-width:880px){
+    .cl-hero h1{font-size:2.2rem}
+  }
+</style>
+
+  </section>
+</body>
+</html>

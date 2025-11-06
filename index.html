@@ -1,590 +1,202 @@
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>서울대 안양수목원 예약 주차위치 코스보기</title>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J5L62JXZJ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-8J5L62JXZJ');
-    </script>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8N54C4EBY"></script>
-    
-    <!-- Google Ads Conversion Tracking -->
-    <script>
-      function gtag_report_conversion(url) {
-        gtag('event', 'conversion', {
-            'send_to': 'AW-11211788695/B8JyCN_JjpUZEJejmeIp'
-        });
-        // 페이지 이동을 하지 않음 (전면광고에서 사용자가 직접 클릭하도록)
-        return false;
-      }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서울대 안양수목원 | 주차 · 예약 · 코스보기</title>
 
-    <!-- 애드센스 보호 스크립트 -->
-    <script>
-    // 종합 애드센스 보호 시스템
-    class AdSenseProtection {
-        constructor() {
-            this.dailyLimit = 3;
-            this.clickInterval = 5000;
-            this.lastClick = 0;
-            this.init();
-        }
-        
-        init() {
-            this.checkBot();
-            this.setupClickProtection();
-        }
-        
-        checkBot() {
-            const botIndicators = [
-                navigator.webdriver,
-                window.phantom,
-                /bot|crawler|spider/i.test(navigator.userAgent)
-            ];
-            
-            if (botIndicators.some(indicator => indicator)) {
-                this.hideAds();
-            }
-        }
-        
-        setupClickProtection() {
-            document.addEventListener('click', (e) => {
-                const ad = e.target.closest('.adsbygoogle');
-                if (ad && !this.validateClick()) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                }
-            });
-        }
-        
-        validateClick() {
-            const now = Date.now();
-            
-            if (now - this.lastClick < this.clickInterval) {
-                alert('너무 빠른 클릭입니다. 잠시 후 다시 시도해주세요.');
-                return false;
-            }
-            
-            if (this.getTodayClicks() >= this.dailyLimit) {
-                alert('오늘 광고 클릭 한도를 초과했습니다.');
-                return false;
-            }
-            
-            this.lastClick = now;
-            this.incrementClickCount();
-            return true;
-        }
-        
-        getTodayClicks() {
-            const today = new Date().toDateString();
-            const stored = localStorage.getItem('adClicks_' + today);
-            return parseInt(stored || '0');
-        }
-        
-        incrementClickCount() {
-            const today = new Date().toDateString();
-            const current = this.getTodayClicks();
-            localStorage.setItem('adClicks_' + today, (current + 1).toString());
-        }
-        
-        hideAds() {
-            document.addEventListener('DOMContentLoaded', () => {
-                document.querySelectorAll('.adsbygoogle').forEach(ad => {
-                    ad.style.display = 'none';
-                });
-            });
-        }
-    }
-
-    // 보호 시스템 활성화
-    new AdSenseProtection();
-    </script>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            scroll-behavior: smooth;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .header {
-            background: linear-gradient(135deg, #2d5016 0%, #4a7c29 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .header p {
-            font-size: 1rem;
-            opacity: 0.95;
-            font-weight: 300;
-        }
-
-        .content {
-            padding: 40px 30px;
-        }
-
-        .top-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .link-btn {
-            display: block;
-            padding: 18px 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .link-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .link-btn:active {
-            transform: translateY(0);
-        }
-
-        .description {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-
-        .description h2 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #2d5016;
-        }
-
-        .description h4 {
-            font-size: 1.05rem;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            color: #2d5016;
-            font-weight: 600;
-        }
-
-        .description p {
-            margin-bottom: 12px;
-            color: #555;
-            line-height: 1.8;
-        }
-
-        .description ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-
-        .description li {
-            margin-bottom: 6px;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .visit-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        .visit-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            color: #2d5016;
-            font-weight: 700;
-        }
-
-        .visit-info p {
-            margin-bottom: 8px;
-            color: #555;
-        }
-
-        .visit-info p:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-highlight {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 6px;
-        }
-
-        .info-highlight p {
-            margin: 3px 0;
-            color: #856404;
-            font-weight: 500;
-        }
-
-        .summary-box {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            border: 2px solid #4a7c29;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        .summary-box h4 {
-            color: #2d5016;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .summary-box p {
-            color: #1b5e20;
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        .shortcut-section {
-            background: white;
-            padding: 30px;
-            text-align: center;
-            border-top: 1px solid #e9ecef;
-        }
-
-        .shortcut-btn {
-            display: inline-block;
-            padding: 20px 50px;
-            background: linear-gradient(135deg, #4a7c29 0%, #6ba83d 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(74, 124, 41, 0.4);
-            animation: pulse 2s infinite;
-        }
-
-        .shortcut-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(74, 124, 41, 0.5);
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .feature-item {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            border: 2px solid #e9ecef;
-        }
-
-        .feature-item span {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .feature-item p {
-            font-size: 0.9rem;
-            color: #666;
-            margin: 0;
-        }
-
-        .ad-space {
-            background: #f8f9fa;
-            padding: 30px 20px;
-            margin: 0;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-top: 1px solid #e9ecef;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .ad-container {
-             width: 100%;
-             max-width: 100%;
-             min-height: auto;
-             background: transparent;
-             border: none;
-             display: block;
-        }
-
-        #check-info {
-            scroll-margin-top: 80px;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            color: #999;
-            font-size: 0.9rem;
-            border-top: 1px solid #e9ecef;
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .header h1 {
-                font-size: 1.6rem;
-            }
-
-            .header p {
-                font-size: 0.9rem;
-            }
-
-            .content {
-                padding: 30px 20px;
-            }
-
-            .link-btn {
-                padding: 16px 25px;
-                font-size: 1rem;
-            }
-
-            .description h2 {
-                font-size: 1.1rem;
-            }
-
-            .description h4 {
-                font-size: 1rem;
-            }
-
-            .description p, .description li {
-                font-size: 0.9rem;
-            }
-
-            .visit-info h3 {
-                font-size: 1.1rem;
-            }
-
-            .visit-info p {
-                font-size: 0.9rem;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .shortcut-section {
-                padding: 20px;
-            }
-
-            .shortcut-btn {
-                padding: 16px 30px;
-                font-size: 1rem;
-            }
-
-            .ad-space {
-                padding: 20px 10px;
-                min-height: 250px;
-            }
-
-            .ad-container {
-                min-height: 200px;
-            }
-
-            #check-info {
-                scroll-margin-top: 60px;
-            }
-        }
-    </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11211788695"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-11211788695');
+  </script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🌳 서울대 안양수목원 주차장 프로그램 예약 코스보기</h1>
-            <p>조기마감되는 인기 체험 미리 확인!</p>
-        </div>
+  <!-- 🌿 서울대 안양수목원 CTR 강화형 랜딩 섹션 (모든 CTA = two.keypoints.kr) -->
+<section class="anyang-landing" aria-label="서울대 안양수목원 안내">
 
-        <div class="content">
-            <!-- 상단 3개 링크 버튼 -->
-            <div class="top-buttons">
-                <a href="https://two.keypoints.kr/" class="link-btn">🚗 주차장 확인</a>
-                <a href="https://two.keypoints.kr/" class="link-btn">📅 프로그램 예약하기</a>
-                <a href="https://two.keypoints.kr/" class="link-btn">🗺️ 코스 보기</a>
-            </div>
+  <!-- 헤더 히어로 -->
+  <div class="al-hero">
+    <p class="al-badge">🔥 11월 인기 프로그램 조기마감 주의</p>
+    <h1>서울대 안양수목원 주차 · 프로그램 예약 · 코스보기</h1>
+    <p class="al-sub">
+      가족/연인 힐링 산책 필수 코스 🌿 자유관람 불가 → <strong>사전예약 프로그램</strong>으로 이용하세요.
+    </p>
 
-            <!-- 간단한 설명 -->
-            <div class="description">
-                <h2>안양수목원 소개</h2>
-                <p>서울대학교 안양수목원은 수도권 최대 규모의 자연 친화적 수목원으로, 다양한 식물과 아름다운 산책로를 갖추고 있습니다.</p>
-                <p>사계절 내내 변화하는 자연의 아름다움을 감상하며, 가족, 친구, 연인과 함께 소중한 시간을 보내세요.</p>
-                
-                <div class="features">
-                    <div class="feature-item">
-                        <span>🌸</span>
-                        <p>다양한 식물</p>
-                    </div>
-                    <div class="feature-item">
-                        <span>🚶‍♂️</span>
-                        <p>산책로</p>
-                    </div>
-                    <div class="feature-item">
-                        <span>👨‍👩‍👧‍👦</span>
-                        <p>가족 친화</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 방문 정보 -->
-            <div class="visit-info">
-                <h3>📍 방문 정보</h3>
-                <p><strong>운영시간:</strong> 화~일요일 09:00 - 18:00 (월요일 휴관)</p>
-                <p><strong>입장료:</strong> 무료</p>
-                <p><strong>주소:</strong> 경기도 안양시 만안구 일대</p>
-            </div>
-        </div>
-
-        <!-- 확인하기 섹션 -->
-        <div class="content">
-            <div class="description">
-                <h2 id="check-info">확인하기</h2>
-                
-                <h4>🚗 주차 안내</h4>
-                <ul>
-                    <li>수목원 내부 주차 불가</li>
-                    <li>안양예술공원 공영주차장 이용</li>
-                    <li>주말 & 성수기 혼잡 → 대중교통 추천</li>
-                </ul>
-
-                <h4>📅 프로그램 예약 방법</h4>
-                <ul>
-                    <li>개별 자유관람 불가</li>
-                    <li>사전 예약 프로그램 참여 필수</li>
-                    <li>일반적으로 매월 20일 오전 9시 오픈 → 다음 달 숲해설·치유 프로그램 신청</li>
-                </ul>
-                <div class="info-highlight">
-                    <p>예약 빨리 마감됨! 알람 필수 ✅</p>
-                </div>
-
-                <h4>🥾 추천 코스 포인트</h4>
-                <ul>
-                    <li>자생식물원 → 습지원 → 소잔디원 코스 인기</li>
-                    <li>자연 관찰/치유형 코스, 난이도 쉬움</li>
-                    <li>운동화 & 긴 바지 추천</li>
-                    <li>음식물 반입 제한(생수 OK)</li>
-                </ul>
-
-                <h4>✨ 방문 팁</h4>
-                <ul>
-                    <li>아이 있는 가족, 힐링 산책에 👍</li>
-                    <li>봄/가을 풍경 특히 아름다움</li>
-                    <li>체험형 프로그램 위주 → 천천히 즐기기 좋음</li>
-                </ul>
-
-                <div class="summary-box">
-                    <h4>📌 한줄 요약</h4>
-                    <p>서울대 안양수목원은 자유 입장이 아닌 사전 예약제 🌿 주차는 안양예술공원에 하고, 숲해설 프로그램으로 힐링 산책하기 딱 좋아요!</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 광고 공간 -->
-        <div class="ad-space" id="ad-section">
-            <div class="ad-container">
-                <!-- 애드센스 광고 -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9447899790436644"
-                     crossorigin="anonymous"></script>
-                <!-- 하단 -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-9447899790436644"
-                     data-ad-slot="6908995644"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </div>
-
-        <!-- 바로가기 버튼 -->
-        <div class="shortcut-section">
-            <a href="https://two.keypoints.kr/" class="shortcut-btn" onclick="gtag_report_conversion('https://two.keypoints.kr/'); return false;">
-                👆​ 상세 정보 바로가기 👆​
-            </a>
-        </div>
-
-        <div class="footer">
-            <p>© 2025 서울대학교 안양수목원. All rights reserved.</p>
-        </div>
+    <!-- 상단 3버튼 (주요 CTA) -->
+    <div class="al-top-cta">
+      <a href="https://two.keypoints.kr" class="al-btn al-btn-blue" target="_self" aria-label="주차장 위치 및 안내 바로 보기">🚗 지금 주차 위치 확인하기</a>
+      <a href="https://two.keypoints.kr" class="al-btn al-btn-green" target="_self" aria-label="프로그램 예약 가능한 일정 확인">📅 오늘 예약 가능한 프로그램 보기</a>
+      <a href="https://two.keypoints.kr" class="al-btn al-btn-orange" target="_self" aria-label="인기 코스 바로 보기">🗺️ 인기 코스 바로 보기</a>
     </div>
 
-    <script>
-        // 스크롤 기능 제거됨
-    </script>
+    <!-- 신뢰/이득 문구 -->
+    <ul class="al-benefits" role="list">
+      <li>✅ 평균 30초 내 예약 확인</li>
+      <li>✅ 주말 혼잡도 미리 체크</li>
+      <li>✅ 쉬운 난이도 힐링 코스</li>
+    </ul>
+  </div>
+
+  <!-- 소개/방문 정보 요약 -->
+  <div class="al-intro">
+    <h2 id="about">안양수목원 소개</h2>
+    <p>
+      서울대학교 안양수목원은 수도권 최대급 자연친화 수목원으로, 사계절 다양한 식물과 산책로를 갖춘 힐링 명소입니다.
+      <strong>자유입장 불가</strong>이며, <strong>사전 예약 프로그램</strong>으로만 관람할 수 있어요.
+    </p>
+
+    <div class="al-cards">
+      <div class="al-card">
+        <div class="al-emoji" aria-hidden="true">🌸</div>
+        <strong>다양한 식물</strong>
+        <span class="al-small">계절별 테마 식생 관찰</span>
+      </div>
+      <div class="al-card">
+        <div class="al-emoji" aria-hidden="true">🚶‍♂️</div>
+        <strong>힐링 산책로</strong>
+        <span class="al-small">쉬운 난이도, 가족 동반 추천</span>
+      </div>
+      <div class="al-card">
+        <div class="al-emoji" aria-hidden="true">👨‍👩‍👧‍👦</div>
+        <strong>가족 친화</strong>
+        <span class="al-small">숲해설·치유형 프로그램</span>
+      </div>
+    </div>
+
+    <div class="al-info">
+      <div><strong>운영시간</strong> 화~일 09:00–18:00 (월 휴관)</div>
+      <div><strong>입장료</strong> 무료</div>
+      <div><strong>주소</strong> 경기도 안양시 만안구 일대</div>
+    </div>
+
+    <div class="al-inline-cta">
+      <a href="https://two.keypoints.kr" class="al-link" target="_self">👆 상세 예약 바로가기</a>
+    </div>
+  </div>
+
+  <!-- 주차 -->
+  <div id="parking" class="al-section">
+    <h2>🚗 주차 안내</h2>
+    <ul class="al-list">
+      <li>수목원 내부 <strong>주차 불가</strong></li>
+      <li><strong>안양예술공원 공영주차장</strong> 이용</li>
+      <li>주말·성수기 혼잡 👉 <strong>대중교통 적극 추천</strong></li>
+    </ul>
+    <div class="al-next">
+      <a href="https://two.keypoints.kr" class="al-btn al-btn-green" target="_self">📅 다음: 예약 가능한 프로그램 보기</a>
+    </div>
+  </div>
+
+  <!-- 프로그램 예약 -->
+  <div id="program" class="al-section">
+    <h2>📅 프로그램 예약 방법</h2>
+    <ul class="al-list">
+      <li><strong>자유관람 불가</strong> → <strong>사전 예약 프로그램 필수</strong></li>
+      <li>일반적으로 <strong>매월 20일 오전 9시</strong> 오픈 → <em>다음 달</em> 숲해설·치유 프로그램 신청</li>
+      <li>인기 회차는 <strong>빠르게 마감</strong> → 알림 설정 추천</li>
+    </ul>
+
+    <!-- 예약 메인 CTA -->
+    <div class="al-stack-cta">
+      <a href="https://two.keypoints.kr" class="al-btn al-btn-blue" target="_self" aria-label="추천 코스 먼저 보기">🗺️ 코스 먼저 보고 결정하기</a>
+      <a href="https://two.keypoints.kr" class="al-btn al-btn-primary" target="_self" aria-label="지금 예약 가능한 일정 보기">📅 지금 예약 가능한 일정 보기</a>
+      <p class="al-micro">* 실제 예약은 공식 예약 페이지에서 진행됩니다. (조기마감 주의)</p>
+    </div>
+  </div>
+
+  <!-- 코스 -->
+  <div id="course" class="al-section">
+    <h2>🗺️ 추천 코스</h2>
+    <div class="al-bullets">
+      <p><strong>인기 코스</strong> : 자생식물원 → 습지원 → 소잔디원</p>
+      <p><strong>난이도</strong> : 쉬움 · 자연 관찰/치유형</p>
+      <p><strong>준비물</strong> : 운동화, 긴 바지 권장 · 음식물 반입 제한(생수 OK)</p>
+    </div>
+    <div class="al-next">
+      <a href="https://two.keypoints.kr" class="al-btn al-btn-primary" target="_self">📅 이 코스로 예약 가능한 일정 보기</a>
+    </div>
+  </div>
+
+  <!-- 한줄 요약 -->
+  <div class="al-summary">
+    <p>
+      📌 <strong>한줄 요약</strong> : 안양수목원은 <strong>사전 예약제</strong>이며, 주차는 <strong>안양예술공원</strong> 이용!
+      숲해설 프로그램으로 힐링 산책하기 딱 좋아요 🌿
+    </p>
+    <a href="https://two.keypoints.kr" class="al-btn al-btn-primary" target="_self">📅 바로 예약 일정 확인</a>
+  </div>
+
+  <!-- 고정형 하단 CTA (모바일 우선) -->
+  <div class="al-sticky-cta" role="dialog" aria-label="하단 고정 예약 안내">
+    <a href="https://two.keypoints.kr" class="al-sticky-btn" target="_self">📅 지금 예약 가능한 프로그램 보기</a>
+  </div>
+</section>
+
+<style>
+  .anyang-landing{--al-bg:#f7faf8;--al-text:#111;--al-muted:#5b5b5b;
+    --al-blue:#1769ff;--al-green:#28a745;--al-orange:#ff9800;--al-primary:#2e7d32;
+    --al-white:#fff;--al-shadow:0 6px 18px rgba(0,0,0,.08);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--al-text);background:var(--al-bg);border-radius:16px;padding:24px 16px;margin:0 auto;max-width:960px}
+  .anyang-landing *{box-sizing:border-box}
+  .al-hero{text-align:center;padding:8px 8px 4px}
+  .al-badge{display:inline-block;background:#ffe8e0;color:#c43d00;font-weight:700;border-radius:999px;padding:6px 12px;margin:0 0 10px}
+  .al-hero h1{font-size:1.6rem;line-height:1.35;margin:4px 0 8px}
+  .al-sub{color:var(--al-muted);margin:0 auto 14px;max-width:680px}
+  .al-top-cta{display:grid;grid-template-columns:1fr;gap:10px;margin:14px auto 6px;max-width:720px}
+  .al-btn{display:inline-block;text-align:center;padding:14px 16px;border-radius:12px;font-weight:700;text-decoration:none}
+  .al-btn-blue{background:var(--al-blue);color:var(--al-white)}
+  .al-btn-green{background:var(--al-green);color:var(--al-white)}
+  .al-btn-orange{background:var(--al-orange);color:var(--al-white)}
+  .al-btn-primary{background:var(--al-primary);color:var(--al-white)}
+  .al-benefits{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;color:#2f3a2f;margin:8px 0 4px;padding:0}
+  .al-benefits li{list-style:none;background:#e9f3ec;border-radius:10px;padding:6px 10px;font-size:.92rem}
+
+  .al-intro{background:#ffffff;border-radius:14px;box-shadow:var(--al-shadow);padding:16px;margin:18px 0}
+  .al-intro h2{font-size:1.25rem;margin:0 0 8px}
+  .al-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0}
+  .al-card{background:#f5f7ff;border:1px solid #e2e8ff;border-radius:12px;padding:12px;text-align:center}
+  .al-emoji{font-size:1.6rem;margin-bottom:6px}
+  .al-small{display:block;color:var(--al-muted);font-size:.9rem;margin-top:4px}
+  .al-info{display:grid;grid-template-columns:1fr;gap:6px;background:#f7faf8;border:1px dashed #cfe3d0;border-radius:12px;padding:12px;margin-top:12px}
+  .al-inline-cta{margin-top:10px}
+  .al-link{font-weight:700;color:var(--al-blue);text-decoration:underline}
+
+  .al-section{background:#fff;border-radius:14px;box-shadow:var(--al-shadow);padding:16px;margin:18px 0;scroll-margin-top:90px}
+  .al-section h2{margin:0 0 10px;font-size:1.25rem}
+  .al-list{margin:8px 0 0 18px}
+  .al-list li{margin:6px 0}
+  .al-bullets p{margin:6px 0}
+
+  .al-next{margin-top:12px}
+  .al-stack-cta{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}
+  .al-micro{margin:2px 0 0;color:var(--al-muted);font-size:.92rem}
+
+  .al-summary{background:#f1f8f2;border:1px solid #cfe3d0;border-radius:14px;padding:14px;margin:18px 0;text-align:center}
+  .al-summary p{margin:0 0 10px}
+
+  /* 하단 고정 CTA (모바일 기본 표시) */
+  .al-sticky-cta{position:sticky;bottom:0;left:0;right:0;display:block;background:transparent;margin-top:14px}
+  .al-sticky-btn{display:block;margin:0 auto;max-width:720px;background:#ff5c00;color:#fff;text-align:center;
+    padding:14px 18px;border-radius:999px;font-weight:800;box-shadow:0 8px 18px rgba(0,0,0,.18);text-decoration:none}
+
+  /* 반응형 */
+  @media (min-width:600px){
+    .al-hero h1{font-size:1.9rem}
+    .al-top-cta{grid-template-columns:repeat(3,1fr)}
+    .al-info{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (min-width:880px){
+    .al-hero h1{font-size:2.1rem}
+    .al-intro,.al-section,.al-summary{padding:20px}
+  }
+</style>
+
 </body>
 </html>

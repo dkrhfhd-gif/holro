@@ -6,6 +6,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>서울대 안양수목원 | 주차 · 예약 · 코스보기</title>
+<!-- Event snippet for 링크클릭 conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-11211788695/B8JyCN_JjpUZEJejmeIp'});
+</script>
+<!-- Event snippet for 링크클릭 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11211788695/B8JyCN_JjpUZEJejmeIp',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11211788695"></script>

@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<!-- Event snippet for 링크클릭 conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-11211788695/B8JyCN_JjpUZEJejmeIp'});
+</script>
+<!-- Event snippet for 링크클릭 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11211788695/B8JyCN_JjpUZEJejmeIp',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+<!-- Event snippet for 페이지 조회 (2) conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-11211788695/4q--CIW0-JIZEJejmeIp'});
+</script>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J5L62JXZJ"></script>
 <script>
@@ -10,6 +35,23 @@
 
   gtag('config', 'G-8J5L62JXZJ');
 </script>
+<!-- Event snippet for 페이지 조회 (2) conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11211788695/4q--CIW0-JIZEJejmeIp',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>종합건강검진 할인받는 법 총정리 (2025 최신)</title>

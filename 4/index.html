@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사랑온난방비 신청</title>
+    <style>
+        /* 기본 스타일 초기화 */
+        body, h1, h2, h3, p, div, a, ul, li {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", Roboto, sans-serif;
+            box-sizing: border-box;
+            word-break: keep-all; /* 단어 단위 줄바꿈 (가독성) */
+        }
+        body {
+            background-color: #f8f9fa; /* 전체 배경색 */
+            line-height: 1.6;
+            color: #343a40;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+
+        /* --- 1. 최상단 헤더 및 긴급 정보 --- */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .header h1 {
+            font-size: 1.9em; /* 30px */
+            font-weight: 800;
+            color: #2c3e50; /* 짙은 파란색 */
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .header .sub-title {
+            font-size: 1.05em; /* 17px */
+            color: #555;
+        }
+        .alert-box {
+            background-color: #fff3cd; /* 연한 경고 노란색 */
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* --- 2. 핵심 CTA 버튼 (정부 지원) --- */
+        .cta-group {
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: block;
+            padding: 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.2em; /* 19px */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        .cta-button.primary {
+            background-color: #007bff; /* 정부 지원 파란색 */
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+        }
+        .cta-button.primary:hover {
+            background-color: #0056b3;
+        }
+        .cta-button.secondary {
+            background-color: #6c757d; /* 보조 회색 */
+            color: white;
+            box-shadow: 0 4px 10px rgba(108,117,125,0.2);
+        }
+        .cta-button.secondary:hover {
+            background-color: #5a6268;
+        }
+        .cta-button small {
+            display: block;
+            font-size: 0.8em;
+            font-weight: normal;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        /* --- 3. 가이드 섹션 --- */
+        .section-title {
+            font-size: 1.5em; /* 24px */
+            font-weight: 700;
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        .guide-item {
+            background: #fdfdfd;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+        .guide-item h3 {
+            font-size: 1.15em; /* 18px */
+            color: #0056b3;
+            margin-bottom: 8px;
+        }
+        .guide-item p, .guide-item ul {
+            font-size: 0.95em;
+            color: #495057;
+        }
+        .guide-item ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+        .guide-item li {
+            margin-bottom: 3px;
+        }
+        .important-note {
+            background-color: #e6f7ff;
+            border-left: 5px solid #007bff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #0056b3;
+            margin-top: 15px;
+        }
+
+        /* --- 4. 상업성 (해결책) 섹션 --- */
+        .commercial-section {
+            margin-top: 40px;
+        }
+        .commercial-section .section-title {
+            color: #e67e22; /* 주황색 강조 */
+            border-color: #ffe0b2;
+        }
+        .ad-card {
+            display: block;
+            background-color: #fff;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .ad-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        }
+        .ad-card .ad-header {
+            padding: 12px 15px;
+            font-size: 0.9em;
+            font-weight: 700;
+            color: white;
+        }
+        .ad-card-saving .ad-header {
+            background-color: #28a745; /* 녹색 */
+        }
+        .ad-card-loan .ad-header {
+            background-color: #dc3545; /* 빨간색 */
+        }
+        .ad-card-finance .ad-header {
+            background-color: #6f42c1; /* 보라색 */
+        }
+        .ad-card .ad-content {
+            padding: 15px;
+        }
+        .ad-card .ad-content h3 {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 5px;
+        }
+        .ad-card .ad-content p {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* --- 푸터 --- */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.8em;
+            color: #adb5bd;
+            line-height: 1.6;
+            background-color: #f1f3f5;
+            margin-top: 30px;
+        }
+        .footer p {
+            margin-bottom: 8px;
+        }
+        .footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>사랑의 온(溫)난방비<br>신청</h1>
+            <p class="sub-title">2025년 정부 및 민간 난방비 지원 정보를 한눈에!</p>
+        </div>
+
+        <div class="alert-box">
+            ✔️ <strong style="color: #e67e22;">2025년 에너지바우처 신청 기간 2025 11월 23일까지 아래에서 확인하세요</strong>
+        </div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9447899790436644"
+     crossorigin="anonymous"></script>
+<!-- h2아래 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9447899790436644"
+     data-ad-slot="8222077316"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <div class="cta-group">
+            <a href="https://info.keypoints.kr/%ec%82%ac%eb%9e%91%ec%98%a8%eb%82%9c%eb%b0%a9%eb%b9%84-2025-%ec%a7%80%ec%9b%90-%ec%8b%a0%ec%b2%ad-%eb%b0%a9%eb%b2%95-%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80/" class="cta-button primary">
+                🔥 사랑온 난방비 신청 바로가기
+                <small>(50만원 받으러가기)</small>
+            </a>
+            <a href="#" class="cta-button secondary">
+                📍 내 주변 주민센터 찾기
+                <small>(오프라인 신청시)</small>
+            </a>
+        </div>
+
+        <h2 class="section-title">✅ 꼭 확인하세요! 신청 자격 및 방법</h2>
+        
+        <div class="guide-item">
+            <h3>누가 받을 수 있나요? (신청 자격)</h3>
+            <p>소득 기준 및 세대원 특성을 모두 충족하는 가구</p>
+            <ul>
+                <li><strong>소득 기준:</strong> 생계·의료·주거·교육급여 수급자 또는 차상위계층 등</li>
+                <li><strong>세대원 특성:</strong> (위 소득 기준 충족 가구 중) 노인(만 65세 이상), 영유아(만 7세 미만), 장애인, 임산부 등</li>
+            </ul>
+        </div>
+
+        <div class="guide-item">
+            <h3>어떻게 신청하나요? (신청 방법 및 서류)</h3>
+            <p>온라인과 방문 신청이 가능하며, 신청 기간 내에 1회만 신청할 수 있습니다.</p>
+            <ul>
+                <li><strong>온라인:</strong> '복지로' 웹사이트 (www.bokjiro.go.kr) 접속 후 신청</li>
+                <li><strong>방문:</strong> 주소지 관할 주민센터 방문 (본인 또는 대리인)</li>
+                <li><strong>필요 서류:</strong> 신분증, (필요시) 임대차 계약서 사본, 요금 고지서 등</li>
+            </ul>
+            <div class="important-note">
+                <p>💡 <strong style="color: #0056b3;">신청 전, 반드시 해당 연도 에너지바우처 공고문을 확인하세요!</strong></p>
+            </div>
+        </div>
+        
+        <div class="commercial-section">
+            <h2 class="section-title">💸 난방비, 혹시 더 필요하신가요?</h2>
+            <p style="margin-bottom: 20px; font-size: 0.95em; text-align: center; color: #555;">
+                지원을 받아도 부담스럽다면, 실질적인 해결책을 찾아보세요.
+            </p>
+
+            <a href="https://info.keypoints.kr/%eb%82%9c%eb%b0%a9%eb%b9%84-%ec%a0%88%ec%95%bd-%eb%b0%a9%eb%b2%95/" class="ad-card ad-card-saving">
+                <div class="ad-header">💰 난방비 절약! 지금 바로 시작하세요</div>
+                <div class="ad-content">
+                    <h3>✅ 뽁뽁이, 난방텐트 등 방한용품 최저가 구매하기</h3>
+                    <p>작은 투자로 따뜻한 겨울을! 단열 효과 확실한 필수템 모음.</p>
+                </div>
+            </a>
+
+            <a href="https://info.keypoints.kr/%ea%b8%b4%ea%b8%89-%ec%9e%90%ea%b8%88-%ec%a0%95%eb%b6%80%ec%a7%80%ec%9b%90-%eb%8c%80%ec%b6%9c-%ec%8b%a0%ec%b2%ad%eb%b0%a9%eb%b2%95/" class="ad-card ad-card-loan">
+                <div class="ad-header">🆘 긴급 자금 필요! 정부지원 대출</div>
+                <div class="ad-content">
+                    <h3>✅ 저소득층, 서민을 위한 긴급 생계비 대출 알아보기</h3>
+                    <p>갑자기 필요한 자금, 막막할 때 정부의 도움을 받을 수 있습니다.</p>
+                </div>
+            </a>
+
+            <a href="https://info.keypoints.kr/%ec%97%90%eb%84%88%ec%a7%80%eb%b0%94%ec%9a%b0%ec%b2%98-%ec%8b%a0%ec%b2%ad-%eb%b0%a9%eb%b2%95/" class="ad-card ad-card-finance">
+                <div class="ad-header">💡 에너지바우처 신청하기</div>
+                <div class="ad-content">
+                    <h3>✅ 더많은 난방비 지원 효과 같이 보세요</h3>
+                    <p>사랑온 난방비와 함께 받으면 좋은 에너지바우처 지금바로 알아보세요</p>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>본 페이지는 난방비 지원 사업 정보를 제공합니다.</p>
+        <p>문의사항은 각 지원 사업의 주관 기관에 직접 문의하시기 바랍니다.</p>
+        <p><a href="#">개인정보처리방침</a> | <a href="#">사이트 소개</a></p>
+        <p>&copy; 2025. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>
